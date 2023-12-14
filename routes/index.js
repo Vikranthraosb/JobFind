@@ -10,22 +10,36 @@ passport.use(new localStratergy(userModel.authenticate()));
 
 
 router.get('/', function(req, res, next) {
-  res.render('index',);
+  res.render('index',{nav:false});
 });
 
+router.get('/add',isLoggedIn, async function(req, res, next) {
+  const user =await userModel.findOne({username: req.session.passport.user})
+  res.render('add',{nav:true});
+});
+
+router.get('/createpost',isLoggedIn, upload.single("postimage"), async function(req, res, next) {
+  const user =await userModel.findOne({username: req.session.passport.user})
+  
+});
 
 router.get('/register', function(req, res, next) {
-  res.render("register");
+  res.render("register",{nav:false});
 });
 
-router.get('/profile', function(req, res, next) {
-  res.render("profile");
+router.get('/profile',isLoggedIn,async function(req, res, next) {
+  const user =await userModel.findOne({username: req.session.passport.user})
+
+  res.render("profile",{user, nav : true});
 });
 
 // form here to till down, its register, login logout
-router.post('/fileupload', isLoggedIn, upload.single("image"), function(req, res, next){
-  res.send("uploaded");
-  });
+router.post('/fileupload', isLoggedIn, upload.single("image"), async function(req, res, next){
+const user =await userModel.findOne({username: req.session.passport.user})
+user.ProfileImage= req.file.filename;
+await user.save();
+res.redirect("./profile");
+});
 
 router.post('/register', function(req,res,next){
   const data =new userModel({
@@ -39,7 +53,7 @@ router.post('/register', function(req,res,next){
 userModel.register(data, req.body.password)
 .then(function(registerduser){
   passport.authenticate("local")(req,res,function(){
-    res.redirect('/profile');
+    res.redirect('/profile',{nav:true});
   })
 })
 })
@@ -54,7 +68,7 @@ failureRedirect: "/"
 router.get("/logout",function(req,res,next){
     req.logout(function(err) {
       if (err) { return next(err); }
-      res.redirect('/');
+      res.redirect('/',{nav:false});
     });
   
 })

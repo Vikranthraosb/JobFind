@@ -13,7 +13,17 @@ contact: Number,
 boards: {
   type: Array,
   default:[]
+},
+posts: [{
+  type : mongoose.Schema.Types.ObjectId,
+  ref: "post"
 }
+
+]
 });
 userSchema.plugin(plm);
 module.exports=mongoose.model("user",userSchema )
+
+
+
+// 47 th minuits
