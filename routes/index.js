@@ -20,12 +20,12 @@ router.get('/add',isLoggedIn, async function(req, res, next) {
   res.render('add',{nav:true});
 });
 
-router.get('/createpost',isLoggedIn, upload.single("postimage"), async function(req, res, next) {
+router.post('/createpost',isLoggedIn, upload.single("postimage"), async function(req, res, next) {
   const user =await userModel.findOne({username: req.session.passport.user})
    const post= await postModel.create({
     user: user._id,
     title: req.body.title,
-    description:req.body.description,
+    Description:req.body.Description,
     image: req.file.filename
   });
   user.posts.push(post._id);
@@ -39,8 +39,21 @@ router.get('/register', function(req, res, next) {
 
 router.get('/profile',isLoggedIn,async function(req, res, next) {
   const user =await userModel.findOne({username: req.session.passport.user})
-
+.populate("posts")
   res.render("profile",{user, nav : true});
+});
+
+router.get('/show/posts',isLoggedIn,async function(req, res, next) {
+  const user =await userModel.findOne({username: req.session.passport.user})
+.populate("posts")
+  res.render("show",{user, nav : true});
+});
+
+router.get('/feed',isLoggedIn,async function(req, res, next) {
+  const user =await userModel.findOne({username: req.session.passport.user})
+ const posts = await postModel.find()
+.populate("user")
+res.render("feed",{user, posts,nav:true})
 });
 
 // form here to till down, its register, login logout
@@ -56,7 +69,8 @@ router.post('/register', function(req,res,next){
   const data =new userModel({
     username: req.body.username,
     email: req.body.email,
-    contact: req.body.contact
+    contact: req.body.contact,
+    name: req.body.fullname
   })
 
 
@@ -64,13 +78,13 @@ router.post('/register', function(req,res,next){
 userModel.register(data, req.body.password)
 .then(function(registerduser){
   passport.authenticate("local")(req,res,function(){
-    res.redirect('/profile',{nav:true});
+    res.redirect('/profile');
   })
-})
+});
 })
 
 router.post('/login', passport.authenticate("local",{
-  successRedirect :"/profile",
+successRedirect :"/profile",
 failureRedirect: "/"
 }),function(req, res){}
 );
