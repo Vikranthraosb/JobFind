@@ -10,4 +10,4 @@ description: String,
 image: String
 });
 
-module.exports= mongoose.model("post",userSchema )
+module.exports= mongoose.model("post",postSchema )
