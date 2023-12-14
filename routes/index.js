@@ -23,7 +23,9 @@ router.get('/profile', function(req, res, next) {
 });
 
 // form here to till down, its register, login logout
-
+router.post('/fileupload', isLoggedIn, upload.single("image"), function(req, res, next){
+  res.send("uploaded");
+  });
 
 router.post('/register', function(req,res,next){
   const data =new userModel({
@@ -65,9 +67,7 @@ function isLoggedIn(req,res,next){
   res.redirect("/");
 }
 
-router.post('/fileupload', isLoggedIn, upload.single("image"), function(req,res,next){
-res.send("uploaded");
-});
+
 
 
 module.exports = router;
