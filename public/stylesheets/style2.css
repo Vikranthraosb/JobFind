@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Gilroy';
-    color: orange
+    color: rgb(0, 13, 162)
 }
 *::selection{
     color: rgb(0, 209, 0);
@@ -13,6 +13,7 @@ html , body{
     height: 100%;
     width: 100%;
     background: black;
+    
 }
 .container{
     height: 100%;

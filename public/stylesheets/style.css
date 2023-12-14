@@ -24,7 +24,7 @@ html , body{
 .login-box{
     height: 67vh;
     width: 50vh;
-    background-color: rgb(65, 51, 51);
+    background-color: rgb(166, 117, 117);
     padding: 3px;display: flex;
     flex-direction: column;
     align-items:center;

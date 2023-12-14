@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const userModel =require("./users");
 const passport = require('passport');
+const upload =require("./multer")
 
 //below is local statergy for login and logout purpose
 const localStratergy =require('passport-local');
@@ -31,6 +32,8 @@ router.post('/register', function(req,res,next){
     contact: req.body.contact
   })
 
+
+  
 userModel.register(data, req.body.password)
 .then(function(registerduser){
   passport.authenticate("local")(req,res,function(){
@@ -61,8 +64,10 @@ function isLoggedIn(req,res,next){
   }
   res.redirect("/");
 }
-// Till HERE 
 
+router.post('/fileupload', isLoggedIn, upload.single("image"), function(req,res,next){
+res.send("uploaded");
+});
 
 
 module.exports = router;
@@ -70,5 +75,4 @@ module.exports = router;
 
 
 
-// 56.30 th minuit stoped 
 // https://www.youtube.com/watch?v=y-dkusalYw0&t=2941s
