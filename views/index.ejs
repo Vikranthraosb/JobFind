@@ -14,17 +14,16 @@
       </div>
     </div>
   </div>
+        <!-- login ends from here -->
+
   
-    <% include ./footer.ejs %>
   
-      <!-- login ends from here -->
       <div class="contents">
 <div class="hero">
-
 </div>
 
-<div class="cards">
-  <h1>WHO IS THIS PLATFORM FOR?</h1>
+  <div class="cards">
+    <h1>WHO IS THIS PLATFORM FOR?</h1>
   <div class="card">
     <div class="front">
       <p>card-1</p>
@@ -70,30 +69,20 @@
 </div>
 
 <div class="growth">
-  
-</div>
-  
-  <!-- Repeat the above card structure for the other two cards -->
-  <!-- ... -->
-</div>
+  <div class="growthleft"></div>
+  <div class="growthright">
+   <img src="/images/globe.png" alt="">
+  </div>
 </div>
 
+</div>
+
+
+
+<% include ./footer.ejs %>
 
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
-
 const btn = document.querySelector("#btn_login"); // Corrected to select the button by ID
 const hide = document.querySelector(".hide");
 var flag=0;

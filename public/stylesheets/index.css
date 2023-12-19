@@ -11,7 +11,7 @@
 .hero{
     height: 80vh;
     width: 100%;
-    background: linear-gradient(to bottom, #c40d0d, #3a2e2e);
+    background: linear-gradient(to bottom, #562727,#ff0101);
     border-radius: 2vw;
     border-bottom-left-radius: 20%;
     border-top-right-radius: 20%;
@@ -33,14 +33,21 @@
     transform: translate(-50%,-50%);
   }
   .cards {
-    background-color: rgb(255, 255, 255);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     height: 90vh;
+    position: relative;
   }
-  
+  .globeimg{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    z-index: -1;
+  }
   .cards h1 {
     text-align: center;
     width: 100%;
@@ -55,6 +62,7 @@
     margin-top: 20px;
     perspective: 1000px;
     position: relative;
+    z-index: 100;
   }
   
   .front,
@@ -118,5 +126,31 @@
     margin-top: 3vw;
     height: 80vh;
     width: 100%;
-    background-color: rgb(253, 241, 221);
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .growthright{
+    height: 100%;
+    width: 40%;
+  }
+  .growthleft{
+    height: 100%;
+    width: 60%;
+  }
+  .growthright img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    animation: rotate 10s ease-in-out infinite; 
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
