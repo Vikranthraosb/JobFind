@@ -14,7 +14,7 @@
         <h1 class="text-3xl font-semibold mt-5"><%= user.name%></h1>
         <h3 class="text-md">@<%= user.name%></h3>
         <a href="/edit" class="mt-5 px-7 py-2 bg-gray-800 rounded-full text-xs font-semibold text-white">edit</a>
-        <a href="/add" class="mt-5 px-14 py-4 bg-orange-800 rounded-full text-xs font-semibold text-white">Add new Post</a>
+        <a href="/add" class="mt-5 px-14 py-4 bg-orange-800 rounded-full text-xs font-semibold text-white">Create A job</a>
 
     </div>
     <div class="cards flex flex-wrap gap-10 px-10 mt-10">
@@ -22,7 +22,7 @@
         <div class="w-32 h-24 bg-red-600 rounded-lg overflow-hidden">
             <img class="h-full w-full object-cover" src="/images/uploads/<%= user?.posts[0]?.image %>" alt="">
         </div>
-        <a href="/show/posts" class="text-xl font-semibold mt-4">Your uploaded pins</aa>
+        <a href="/show/posts" class="text-xl font-semibold mt-4">Your uploaded Jobs</aa>
         <h5 class="text-sm font-semibold mt-2 opacity-60"><%= user.posts.length %>Pins</h5>
     </div>
     </div> 

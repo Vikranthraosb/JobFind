@@ -73,8 +73,6 @@ router.post('/register', function(req,res,next){
     name: req.body.fullname
   })
 
-
-  
 userModel.register(data, req.body.password)
 .then(function(registerduser){
   passport.authenticate("local")(req,res,function(){
@@ -82,13 +80,12 @@ userModel.register(data, req.body.password)
   })
 });
 })
-
+ 
 router.post('/login', passport.authenticate("local",{
 successRedirect :"/profile",
 failureRedirect: "/"
 }),function(req, res){}
 );
-
 
 router.get("/logout",function(req,res,next){
     req.logout(function(err) {
@@ -98,7 +95,6 @@ router.get("/logout",function(req,res,next){
   
 })
 
-
 function isLoggedIn(req,res,next){
   if (req.isAuthenticated()) {
     return next();
@@ -106,12 +102,6 @@ function isLoggedIn(req,res,next){
   res.redirect("/");
 }
 
-
-
-
 module.exports = router;
 
 
-
-
-// https://www.youtube.com/watch?v=y-dkusalYw0&t=2941s
