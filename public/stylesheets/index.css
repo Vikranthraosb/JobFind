@@ -8,6 +8,54 @@
 ::-webkit-scrollbar{
     display: none;
 }
+
+
+#scroller {
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 10;
+  }
+  #scroller::-webkit-scrollbar {
+    display: none;
+  }
+  #scroller-in {
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
+  #scroller h4 {
+    display: inline-block;
+    font-size: 120px;
+    font-weight: 900;
+    font-family: gilroy;
+    margin-right: 20px;
+    transition: all linear 0.3s;
+    color: #000000;
+    -webkit-text-stroke: 2px #ffffff;
+  }
+  #scroller h4:hover {
+    color: #208a00;
+    /* -webkit-text-stroke: 2px #94c806; */
+  }
+  
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+
+
+
 .hero{
     height: 80vh;
     width: 100%;
@@ -16,7 +64,7 @@
     border-bottom-left-radius: 20%;
     border-top-right-radius: 20%;
     margin-top: 12vh;
-    margin-bottom: 6vh;
+    margin-bottom: 12vh;
 }
 .hide{
     height: 80vh;
@@ -39,20 +87,14 @@
     align-items: center;
     height: 90vh;
     position: relative;
-  }
-  .globeimg{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-    position: absolute;
-    z-index: -1;
+    margin-top: 8vw;
   }
   .cards h1 {
     text-align: center;
     width: 100%;
     font-size: 2vw;
     font-weight: bold;
+    margin: 0 0 5vw 0;
   }
   
   .card {
