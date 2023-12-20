@@ -102,6 +102,28 @@ function isLoggedIn(req,res,next){
   res.redirect("/");
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+router.get('/signinpage', (req, res) => {
+  res.render('signinpage',{nav:false}); 
+});
+
+router.get('/registerpage', (req, res) => {
+  res.render('registerpage',{nav:false}); 
+});
+
+
+
 module.exports = router;
 
 

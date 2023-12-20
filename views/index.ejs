@@ -16,11 +16,11 @@
   </div>
         <!-- login ends from here -->
 
-  
-  
-      <div class="contents">
+
+<div class="contents">
 <div class="hero">
-<img src="/images/bg-gif.gif" alt="">
+<img src="/images/bggif2.gif" alt="">
+<h1 style="color: white; font-size: 4vw; font-weight: bold;">copy-2</h1>
 </div>
 
 <div id="scroller">
@@ -37,9 +37,6 @@
     <h4>TRUST</h4>
   </div>
 </div>
-
-
-
   <div class="cards">
     <h1>WHO IS THIS PLATFORM FOR?</h1>
   <div class="card">
@@ -85,7 +82,6 @@
     </div>
   </div>
 </div>
-
 <div class="growth">
   <div class="growthleft">
 
@@ -94,13 +90,14 @@
    <img src="/images/globe.png" alt="">
   </div>
 </div>
-
 <div class="future">
   <video src="/videos/back.mp4" autoplay muted loop></video>
   <div class="ftext">   
            <h1>Think of future</h1>
 <button>Hello</button>        </div>
  </div>
+ 
+
 
 <div class="faq-section">
   <div class="faq-item">
@@ -119,22 +116,22 @@
     </div>
   </div>
   <div class="faq-item">
-    <input type="checkbox" id="faq2">
-    <label for="faq2" class="faq-question">How do I track my order?</label>
+    <input type="checkbox" id="faq3">
+    <label for="faq3" class="faq-question">How do I track my order?</label>
     <div class="faq-answer">
       Once your order is shipped, you will receive a tracking number via email. You can track your order using this number on our website.
     </div>
   </div>
   <div class="faq-item">
-    <input type="checkbox" id="faq2">
-    <label for="faq2" class="faq-question">How do I track my order?</label>
+    <input type="checkbox" id="faq4">
+    <label for="faq4" class="faq-question">How do I track my order?</label>
     <div class="faq-answer">
       Once your order is shipped, you will receive a tracking number via email. You can track your order using this number on our website.
     </div>
   </div>
   <div class="faq-item">
-    <input type="checkbox" id="faq2">
-    <label for="faq2" class="faq-question">How do I track my order?</label>
+    <input type="checkbox" id="faq5">
+    <label for="faq5" class="faq-question">How do I track my order?</label>
     <div class="faq-answer">
       Once your order is shipped, you will receive a tracking number via email. You can track your order using this number on our website.
     </div>
@@ -193,26 +190,11 @@
 </div>
 
 
-
-
-<% include ./footer.ejs %>
-
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js" integrity="sha512-7Au1ULjlT8PP1Ygs6mDZh9NuQD0A5prSrAUiPHMXpU6g3UMd8qesVnhug5X4RoDr35x5upNpx0A6Sisz1LSTXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
-const btn = document.querySelector("#btn_login");
-const hide = document.querySelector(".hide");
-var flag=0;
-btn.addEventListener("click", function() {
-  if(flag==0){
-    hide.style.display = "block";
-flag=1;
-  }
-  else{
-    hide.style.display = "none";
-flag=0;
-  }
-});
+
 
 document.querySelector(".ftext button ").addEventListener("mouseover",function(){
 gsap.to(".future video",{
@@ -230,5 +212,7 @@ gsap.to(".future video",{
     
     })
   })
+
 </script>
 </html>
+<% include ./footer.ejs %>
