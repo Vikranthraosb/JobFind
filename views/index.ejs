@@ -95,6 +95,12 @@
   </div>
 </div>
 
+<div class="future">
+  <video src="/videos/back.mp4" autoplay muted loop></video>
+  <div class="ftext">   
+           <h1>Think of future</h1>
+<button>Hello</button>        </div>
+ </div>
 
 <div class="faq-section">
   <div class="faq-item">
@@ -192,8 +198,9 @@
 <% include ./footer.ejs %>
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js" integrity="sha512-7Au1ULjlT8PP1Ygs6mDZh9NuQD0A5prSrAUiPHMXpU6g3UMd8qesVnhug5X4RoDr35x5upNpx0A6Sisz1LSTXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-const btn = document.querySelector("#btn_login"); /
+const btn = document.querySelector("#btn_login");
 const hide = document.querySelector(".hide");
 var flag=0;
 btn.addEventListener("click", function() {
@@ -206,5 +213,22 @@ flag=1;
 flag=0;
   }
 });
+
+document.querySelector(".ftext button ").addEventListener("mouseover",function(){
+gsap.to(".future video",{
+    opacity:1,
+    duration:1,
+    ease :Power2
+
+})
+  })
+  document.querySelector(".ftext button ").addEventListener("mouseleave",function(){
+    gsap.to(".future video",{
+        opacity:0,
+        duration:1,
+        ease:Power2
+    
+    })
+  })
 </script>
 </html>
