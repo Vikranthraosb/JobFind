@@ -18,6 +18,8 @@
 
 
 <div class="contents">
+ 
+
 <div class="hero">
 <img src="/images/bggif2.gif" alt="">
 <h1 style="color: white; font-size: 4vw; font-weight: bold;">copy-2</h1>
@@ -84,7 +86,8 @@
 </div>
 <div class="growth">
   <div class="growthleft">
-
+    <!-- <div class="cursor">    
+    </div> -->
   </div>
   <div class="growthright">
    <img src="/images/globe.png" alt="">
@@ -195,7 +198,14 @@
 
 <script>
 
+var cus= document.querySelector(".cursor")
+var maindiv= document.querySelector(".growthleft")
 
+maindiv.addEventListener("mousemove",function(dets){
+    cus.style.left= dets.x + "px"
+    cus.style.top= dets.y + "px"
+
+}) 
 document.querySelector(".ftext button ").addEventListener("mouseover",function(){
 gsap.to(".future video",{
     opacity:1,

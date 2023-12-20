@@ -10,7 +10,16 @@
 ::-webkit-scrollbar{
     display: none;
 }
-
+.cursor{
+  position: absolute;
+  background-color:rgb(187, 37, 37);
+  height: 3vw;
+  width: 3vw;
+  opacity: .8;
+  border-radius: 50%;
+ mix-blend-mode:difference; /*for the opecity while moving cursor above text*/
+ transition: all ease .15s;
+}
 #scroller {
     white-space: nowrap;
     overflow-x: auto;
