@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
+  }
+  
+  /* Profile Container */
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    background-color: #ccc;
+    color: #fff;
+  }
+  
+  /* Profile Picture and Details */
+  .profders {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .profders h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  
+  .profders h3 {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+  }
+  
+  /* Edit and Create Job Buttons */
+  .profders a {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  /* Cards Section */
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .card {
+    width: 30%;
+    min-width: 200px;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #ff0000;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .card img {
+    width: 100%;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Media Query for Responsiveness */
+  @media screen and (max-width: 650px) {
+    /* Profile Page */
+    .profile {
+      padding: 0.5rem;
+    }
+  
+    /* Profile Picture and Details */
+    .profders h1 {
+      font-size: 1.5rem;
+    }
+  
+    .profders h3 {
+      font-size: 0.8rem;
+    }
+  
+    .profders a {
+      font-size: 0.7rem;
+      margin-top: 0.8rem;
+      padding: 0.4rem 0.8rem;
+    }
+  
+    /* Cards Section */
+    .cards {
+      padding: 0.5rem;
+    }
+  
+    .card {
+      width: 45%;
+    }
+  }
+  
