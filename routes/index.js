@@ -1,13 +1,16 @@
 var express = require('express');
 var router = express.Router();
-const userModel =require("./users");
+const userModel =require("./users"); 
 const postModel =require("./post");
 const userModel2 =require("./user2");
+const postModel2 =require("./post2");
+
 const passport = require('passport');
 const upload =require("./multer")
 
 //below is local statergy for login and logout purpose
 const localStratergy =require('passport-local');
+const post2 = require('./post2');
 passport.use(new localStratergy(userModel.authenticate()));
 
 router.get('/', function(req, res, next) {
@@ -16,7 +19,12 @@ router.get('/', function(req, res, next) {
 
 router.get('/add',isLoggedIn, async function(req, res, next) {
   const user =await userModel.findOne({username: req.session.passport.user})
-  res.render('add',{nav:true});
+  res.render('add',{nav:false});
+});
+
+router.get('/apply',isLoggedIn, async function(req, res, next) {
+  const user =await userModel.findOne({username: req.session.passport.user})
+  res.render('apply',{nav:false});
 });
 
 router.post('/createpost',isLoggedIn, upload.single("postimage"), async function(req, res, next) {
@@ -31,6 +39,23 @@ router.post('/createpost',isLoggedIn, upload.single("postimage"), async function
 await user.save();
 res.redirect("/profile");
 });
+
+router.post('/applyjob',isLoggedIn, upload.single("postimage"), async function(req, res, next) {
+  const user2 =await userModel.findOne({username: req.session.passport.user})
+   const post2= await postModel2.create({
+    user: user2._id,
+    title: req.body.title,
+    Description:req.body.Description,
+    image: req.file.filename
+  });
+  user2.posts.push(post2._id);
+await user2.save();
+res.redirect("/profile");
+});
+
+
+
+//apply end
 
 router.get('/register', function(req, res, next) {
   res.render("register",{nav:false});
@@ -74,7 +99,7 @@ router.get('/feed',isLoggedIn,async function(req, res, next) {
   const user =await userModel.findOne({username: req.session.passport.user})
  const posts = await postModel.find()
 .populate("user")
-res.render("feed",{user, posts,nav:true})
+res.render("feed",{user, posts,nav:false})
 });
 // form here to till down, its register, login logout
 router.post('/fileupload', isLoggedIn, upload.single("image"), async function(req, res, next){

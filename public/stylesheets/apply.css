@@ -1,0 +1,172 @@
+@import url('https://fonts.gogleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+     background-color: rgb(232, 232, 232);
+
+    margin: 0;
+}
+
+:root{
+    --border:2px solid black;
+    --primary:#ce0000;
+    --sec:#ce5900;
+}
+
+.logo{
+    font-size: 2rem;
+    color:var(--primary)
+}
+.wrap{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* min-height: 30vh; */
+    width: 70%;
+    height: 100%;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* border: var(--border); */
+    /* background-color: yellow; */
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: white;
+    position: sticky;
+}
+
+.form-title{
+    /* padding-top: 80px;
+    /* border: var(--border);  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding-top: 2rem; */
+    /* margin-bottom: 5rem; */
+    padding: 20px;
+    height: 10vh;
+    margin-top: 30px;
+}
+
+.form-title p{
+    font-size: 5vh;
+    padding-right:20px ;
+}
+
+.actform{
+    /* background-color: aqua; */
+    /* border: var(--border); */
+    padding: 0px 80px 30px 80px;
+    
+}
+
+.name {
+    width: 100%;
+    border:2px solid rgb(238, 238, 238);
+    /* border: none; */
+    outline: none;
+    border-radius: 5px;
+    height: 6vh;
+    font-size: large;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    /* background-color: rgb(238, 238, 238); */
+}
+
+.name:hover {
+    border:2px solid #ce5900;
+}
+
+.actform p{
+    font-size: large;
+    color: var(--primary);
+    padding-left: 8px;
+}
+
+.actform select {
+    border:2px solid rgb(238, 238, 238);
+    width: 100%;
+    /* border: none; */
+    outline: none;
+    border-radius: 5px;
+    height: 5vh;
+    padding-left: 10px;
+    font-size: large;
+    margin-bottom: 20px;
+    /* background-color: rgb(238, 238, 238); */
+}
+
+.actform select:hover{
+    border:2px solid #ce5900;
+    
+}
+
+.check1 label{
+    display: inline;
+}
+
+.check1 input{
+    display: inline;
+}
+
+
+.button{
+    display: flex;
+    justify-content: center;
+}
+.button button{
+    /* position: relative;
+    left: 7rem; */
+    width: 7rem;
+    height: 3rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    border-color: #ff6f00;
+    background: rgb(255, 255, 255);
+    transition: all 0s ease 0s;
+}
+
+.button:hover{
+    button{
+        color: aliceblue;
+        background-image: linear-gradient(to right,#ce5900,#ce0000 );
+        border: none;
+        cursor: pointer;
+        filter: drop-shadow(0px 0px 4px black);
+    }
+    
+}
+
+
+input[type="radio"]{
+    margin-bottom: 10px;
+    border: #ce0000;
+}
+
+
+input[type="checkbox"]{
+    margin-bottom: 15px;
+}
+
+/* svg{
+    width: 200px;
+    height: 200px;
+    display: grid;
+    padding-block-end: 20px;
+} */
+
+img{
+    width: 100px;
+    height: 100px;
+    /* margin-left: 50px; */
+    padding-right: 10px;
+}

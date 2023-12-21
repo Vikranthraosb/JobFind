@@ -1,13 +1,24 @@
-const mongoose= require('mongoose');
+const mongoose = require('mongoose');
 
-const postSchema = mongoose.Schema({
-user: {
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: "user"
-},
-title: String,
-description: String,
-image: String
+const postSchema2 = new mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User' 
+    },
+    title: String,
+    description: String,
+    image: String,
+    cname: String,
+    jname: String,
+    jdesc: String,
+    qualify: String,
+    skills: [{ type: String }], 
+    achievement: String,
+    lang: String,
+    exp: String, 
+    internship: Boolean
 });
 
-module.exports= mongoose.model("post",postSchema )
+const JobApplication = mongoose.model('post2', postSchema2);
+
+module.exports = JobApplication;
