@@ -70,14 +70,12 @@ router.get('/show/posts',isLoggedIn,async function(req, res, next) {
 .populate("posts")
   res.render("show",{user, nav : true});
 });
-
 router.get('/feed',isLoggedIn,async function(req, res, next) {
   const user =await userModel.findOne({username: req.session.passport.user})
  const posts = await postModel.find()
 .populate("user")
 res.render("feed",{user, posts,nav:true})
 });
-
 // form here to till down, its register, login logout
 router.post('/fileupload', isLoggedIn, upload.single("image"), async function(req, res, next){
 const user =await userModel.findOne({username: req.session.passport.user})

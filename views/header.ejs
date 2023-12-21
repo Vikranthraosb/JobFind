@@ -12,12 +12,12 @@
 
 <% if (nav=== true){ %>
     <header class="header">
-        <a href="#" class="logo">Logo</a>
+        <a href="#" class="logo">
+          <img src="/images/logo.png" alt="">
+        </a>
         <i class='bx bx-menu' id="menu-icon"></i>
         <nav class="navbar">
-      <a href="/profile">PROFILE</a>
       <a href="/feed">JOBS</a>
-            <a href="/registerpage" class="register" id="register">Register <i class="bx bx-chevron-down"></i></a>
             <a href="/" class="px-3 py-2 bg-red-600 text-white rounded-lg">LOGOUT</a>
 
 
@@ -61,6 +61,12 @@
       backdrop-filter: blur(10px);
       border-bottom-left-radius: 2vw;
       border-bottom-right-radius: 2vw;
+      
+    }
+    .logo img{
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
       
     }
     .header a{ 
