@@ -16,9 +16,15 @@ const postSchema2 = new mongoose.Schema({
     achievement: String,
     lang: String,
     exp: String, 
-    internship: Boolean
+    internship: Boolean,
+    education: String,
+    location: String,
+    employmentType: String,
+    salary: String,
+    language: String,
 });
 
 const JobApplication = mongoose.model('post2', postSchema2);
 
 module.exports = JobApplication;
+

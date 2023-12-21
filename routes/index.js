@@ -27,30 +27,42 @@ router.get('/apply',isLoggedIn, async function(req, res, next) {
   res.render('apply',{nav:false});
 });
 
-router.post('/createpost',isLoggedIn, upload.single("postimage"), async function(req, res, next) {
-  const user =await userModel.findOne({username: req.session.passport.user})
-   const post= await postModel.create({
-    user: user._id,
-    title: req.body.title,
-    Description:req.body.Description,
-    image: req.file.filename
+router.post('/createpost', isLoggedIn, upload.single("postimage"), async function(req, res, next) {
+  const user = await userModel.findOne({ username: req.session.passport.user });
+  const post = await postModel.create({
+      user: user._id,
+      title: req.body.title,
+      Description: req.body.Description,
+      image: req.file.postimage,
+      experience: req.body.experience,
+      skills: Array.isArray(req.body.skills) ? req.body.skills : [req.body.skills],
+      // New fields
+      education: req.body.education,
+      location: req.body.location,
+      language: req.body.language
   });
   user.posts.push(post._id);
-await user.save();
-res.redirect("/profile");
+  await user.save();
+  res.redirect("/profile");
 });
 
-router.post('/applyjob',isLoggedIn, upload.single("postimage"), async function(req, res, next) {
-  const user2 =await userModel.findOne({username: req.session.passport.user})
-   const post2= await postModel2.create({
-    user: user2._id,
-    title: req.body.title,
-    Description:req.body.Description,
-    image: req.file.filename
+router.post('/applyjob', isLoggedIn, upload.single("postimage"), async function(req, res, next) {
+  const user2 = await userModel.findOne({ username: req.session.passport.user });
+  const post2 = await postModel2.create({
+      user: user2._id,
+      title: req.body.title,
+      Description: req.body.Description,
+      image: req.file.postimage,
+      experience: req.body.experience,
+      skills: Array.isArray(req.body.skills) ? req.body.skills : [req.body.skills],
+      // New fields
+      education: req.body.education,
+      location: req.body.location,
+      language: req.body.language
   });
   user2.posts.push(post2._id);
-await user2.save();
-res.redirect("/profile");
+  await user2.save();
+  res.redirect("/profile");
 });
 
 
