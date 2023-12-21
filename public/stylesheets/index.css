@@ -52,6 +52,10 @@
     color: #000000;
     -webkit-text-stroke: 2px #ffffff;
   }
+  .scroller-in h4 {
+    list-style: disc;
+    margin-left: 20px;
+  }
   #scroller h4:hover {
     color: #208a00;
     /* -webkit-text-stroke: 2px #94c806; */
@@ -66,10 +70,6 @@
       transform: translateX(-100%);
     }
   }
-
-
-
-
   .hero {
     height: 80vh;
     width: 100%;
@@ -92,8 +92,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: linear-gradient(to bottom, #562727c2, #ff0101);
-    opacity: .9;
+    background: linear-gradient(to right, #da4012, #e60f1d);        opacity: .75;
     z-index: 0;
   }
   
@@ -173,13 +172,11 @@
   
   .front {
     z-index: 2;
-    background: linear-gradient(to bottom, #fb1d1d, #271f1f);
-  }
+    background: linear-gradient(to right, #da3300, #c3000e);    }
   
   .back {
     transform: rotateY(180deg);
-    background: linear-gradient(to bottom, #fb1d1d, #271f1f);
-  }
+    background: linear-gradient(to right, #da3300, #c3000e);    }
   
   .know-more {
     height: 20%;
@@ -366,8 +363,7 @@
     }
   }
   footer{
-    background: linear-gradient(135deg, #313030, #722020);
-border-radius: 5px;
+    background: linear-gradient(to right, #da3300, #c3000e);    border-radius: 5px;
   }
 .footer {
   padding: 4vh 5vw;
@@ -419,7 +415,7 @@ border-radius: 5px;
 .prefooter ul p {
   font-size: .92vw;
   margin-top: .4vw;
-  color: #cccccc;
+  color: #dbdbdb;
   display: block
 }
 

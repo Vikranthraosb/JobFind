@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy';
+    color: orange
+}
+*::selection{
+    color: rgb(0, 209, 0);
+    background-color: black;
+}
+html , body{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(84, 0, 84);
+}

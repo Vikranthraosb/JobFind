@@ -109,6 +109,14 @@ router.get('/registerpage', (req, res) => {
   res.render('registerpage',{nav:false}); 
 });
 
+router.get('/login', function(req, res, next) {
+  res.render("login",{nav:false});
+});
+
+router.get('/register', function(req, res, next) {
+  res.render("regiter",{nav:false});
+});
+
 module.exports = router;
 
 
