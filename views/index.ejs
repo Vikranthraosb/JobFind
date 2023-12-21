@@ -22,7 +22,7 @@
 
 <div class="hero">
 <img src="/images/bggif2.gif" alt="">
-<h1 style="color: white; font-size: 4vw; font-weight: bold;">copy-3</h1>
+<h1 style="color: white; font-size: 4vw; font-weight: bold;">contents</h1>
 </div>
 
 <div id="scroller">
@@ -217,6 +217,22 @@ gsap.to(".future video",{
     
     })
   })
+  window.addEventListener('scroll', function() {
+  var cardsSection = document.querySelector('.cards');
+  var header = document.querySelector('.header');
+  var scrollPosition = window.scrollY || window.pageYOffset;
+  var cardsSectionOffset = cardsSection.offsetTop;
+
+  if (scrollPosition > cardsSectionOffset) {
+    header.style.display = 'none';
+  } else {
+    header.style.display = 'flex';
+  }
+});
+// gsap and scroll trigger
+
+
+
 
 </script>
 </html>
