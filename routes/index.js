@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const userModel =require("./users");
 const postModel =require("./post");
+const userModel2 =require("./user2");
 
 const passport = require('passport');
 const upload =require("./multer")
@@ -36,7 +37,6 @@ res.redirect("/profile");
 router.get('/register', function(req, res, next) {
   res.render("register",{nav:false});
 });
-
 router.get('/profile',isLoggedIn,async function(req, res, next) {
   const user =await userModel.findOne({username: req.session.passport.user})
 .populate("posts")
@@ -101,19 +101,6 @@ function isLoggedIn(req,res,next){
   }
   res.redirect("/");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 router.get('/signinpage', (req, res) => {
   res.render('signinpage',{nav:false}); 
 });
@@ -121,8 +108,6 @@ router.get('/signinpage', (req, res) => {
 router.get('/registerpage', (req, res) => {
   res.render('registerpage',{nav:false}); 
 });
-
-
 
 module.exports = router;
 
