@@ -3,14 +3,12 @@ var router = express.Router();
 const userModel =require("./users");
 const postModel =require("./post");
 const userModel2 =require("./user2");
-
 const passport = require('passport');
 const upload =require("./multer")
 
 //below is local statergy for login and logout purpose
 const localStratergy =require('passport-local');
 passport.use(new localStratergy(userModel.authenticate()));
-
 
 router.get('/', function(req, res, next) {
   res.render('index',{nav:true});
@@ -37,10 +35,34 @@ res.redirect("/profile");
 router.get('/register', function(req, res, next) {
   res.render("register",{nav:false});
 });
+router.get('/register2', function(req, res, next) {
+  res.render("register2",{nav:false});
+});
+router.get('/login', function(req, res, next) {
+  res.render("login",{nav:false});
+});
+router.get('/login2', function(req, res, next) {
+  res.render("login2",{nav:false});
+});
+router.post('/login', passport.authenticate("local",{
+  successRedirect :"/profile",
+  failureRedirect: "/"
+  }),function(req, res){}
+  );
+  router.post('/login2', passport.authenticate("local", {
+    successRedirect: "/profile2",
+    failureRedirect: "/"
+}), function(req, res) {});
+
 router.get('/profile',isLoggedIn,async function(req, res, next) {
   const user =await userModel.findOne({username: req.session.passport.user})
 .populate("posts")
   res.render("profile",{user, nav : true});
+});
+router.get('/profile2',isLoggedIn,async function(req, res, next) {
+  const user2 =await userModel2.findOne({username: req.session.passport.user})
+.populate("posts")
+  res.render("profile2",{user2, nav : true});
 });
 
 router.get('/show/posts',isLoggedIn,async function(req, res, next) {
@@ -65,27 +87,47 @@ res.redirect("./profile");
 
 });
 
-router.post('/register', function(req,res,next){
-  const data =new userModel({
+// Register for userModel (assuming this is for a different type of user)
+router.post('/register', function(req, res, next) {
+  const data = new userModel({
     username: req.body.username,
     email: req.body.email,
     contact: req.body.contact,
     name: req.body.fullname
-  })
+  });
 
-userModel.register(data, req.body.password)
-.then(function(registerduser){
-  passport.authenticate("local")(req,res,function(){
-    res.redirect('/profile');
-  })
+  userModel.register(data, req.body.password, function(err, registeredUser) {
+    if (err) {
+      console.error(err);
+      res.redirect('/registration-error');
+    } else {
+      passport.authenticate('local')(req, res, function() {
+        res.redirect('/profile');
+      });
+    }
+  });
 });
-})
- 
-router.post('/login', passport.authenticate("local",{
-successRedirect :"/profile",
-failureRedirect: "/"
-}),function(req, res){}
-);
+
+// Register for userModel2
+router.post('/register2', function(req, res, next) {
+  const data2 = new userModel2({
+    username: req.body.username,
+    email: req.body.email,
+    contact: req.body.contact,
+    name: req.body.fullname
+  });
+
+  userModel2.register(data2, req.body.password, function(err, registeredUser) {
+    if (err) {
+      console.error(err);
+      res.redirect('/registration-error');
+    } else {
+      passport.authenticate('local')(req, res, function() {
+        res.redirect('/profile');
+      });
+    }
+  });
+});
 
 router.get("/logout",function(req,res,next){
     req.logout(function(err) {
@@ -93,8 +135,7 @@ router.get("/logout",function(req,res,next){
       res.redirect('/',{nav:false});
     });
   
-})
-
+}) 
 function isLoggedIn(req,res,next){
   if (req.isAuthenticated()) {
     return next();
@@ -108,15 +149,9 @@ router.get('/signinpage', (req, res) => {
 router.get('/registerpage', (req, res) => {
   res.render('registerpage',{nav:false}); 
 });
-
-router.get('/login', function(req, res, next) {
-  res.render("login",{nav:false});
-});
-
 router.get('/register', function(req, res, next) {
   res.render("regiter",{nav:false});
 });
-
 module.exports = router;
 
 
