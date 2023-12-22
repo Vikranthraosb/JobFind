@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        button{
+            display: grid;
+            place-content: center;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 20%;
+            height: 100%;
+            border: 2px solid black;
+            padding: 40px;
+            margin-top: 50px;
+            border-radius: 10px;
+        }
+        button{
+            margin-left: 80px;
+            outline: none;
+            border: none;
+            background-color: aquamarine;
+            border-radius: 2px;
+            height: 30px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <form method="POST" action="/register">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    
+</body>
+</html>

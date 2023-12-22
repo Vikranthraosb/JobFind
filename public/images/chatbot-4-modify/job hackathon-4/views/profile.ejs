@@ -1,0 +1,46 @@
+<% include ./header.ejs %>
+<link rel="stylesheet" href="stylesheets/profile1.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
+
+<div class="profile">
+    <form id="uploadform" hidden action="/fileupload" method="post" enctype="multipart/form-data">
+      <input type="file" name="image">
+      <button type="submit">Upload</button>
+    </form>
+    <div class="profders">
+      <div class="profile-picture">
+        <div class="edit" id="uploadicon">
+         <p><i class="ri-pencil-line"></i></p> 
+        </div>
+        <img src="/images/uploads/<%= user.ProfileImage %>" alt="">
+      </div>
+      <h1><%= user.name%></h1>
+      <h3>@<%= user.name%></h3>
+      <a href="/add" class="add">Create A job</a>
+      <a href="/apply" class="add">Apply for job</a>
+    </div> 
+    <div class="cards">
+      <div class="card">
+        <div class="card-content">
+          <!-- <img src="/images/uploads/<%= user?.posts[0]?.image %>" alt=""> -->
+        </div>
+        <!-- <a href="/show/posts">Current Jobs</a> -->
+        <!-- <h5><%= user.posts.length %>Pins</h5> -->
+      </div>
+    </div>
+  </div>
+
+<script>
+    document.querySelector("#uploadicon").addEventListener("click",function(){
+        document.querySelector("#uploadform input").click()
+    })
+    document.querySelector("#uploadform input").addEventListener("change", function(){
+        document.querySelector("#uploadform").submit();
+
+    })
+
+</script>
+ 
+
+
+<% include ./footer.ejs %>

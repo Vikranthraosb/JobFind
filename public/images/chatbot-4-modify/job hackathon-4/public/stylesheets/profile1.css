@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; 
+    background-color: rgb(3, 0, 54); 
+    color: rgb(3, 0, 54);
+  }
+  
+  
+  .profile {
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(220, 217, 255); 
+    color: white;
+    padding-top: 1rem;
+  }
+  
+  .profders {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5rem; 
+  }
+  
+  .profile-picture {
+    width: 8rem;
+    height: 8rem;
+    background-color: #5b0000;
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .edit {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .edit p{
+    font-size: 34px;
+  }
+  .profders h1 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-top: 1.25rem;
+  }
+  
+  .profders h3 {
+    font-size: 1rem;
+    margin-top: 0.25rem;
+  }
+  
+  .profders a {
+    margin-top: 1.25rem;
+    padding: 0.4375rem 1.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* background-color: yellow; */
+    padding: 4vw;
+    margin-top: 1.25rem;
+    position: relative;
+  }
+  
+  .card {
+    flex: 1 0 0%;
+    max-width: calc(50% - 1.25rem);
+    position: absolute;
+    z-index: 3;
+    top: 70%;
+    left: 49%;
+    transform: translate(-30%,-20%);
+  }
+  
+  /* .card-content {
+    width: 8rem;
+    height: 6rem;
+    background-color: #920000;
+    border-radius: 0.625rem;
+    overflow: hidden;
+  } */
+  
+  .card-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card a {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  
+  .card h5 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    opacity: 0.6;
+  }
+  .add{
+  border: 2px solid red;
+  margin-bottom: .75vw;
+  }
